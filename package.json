@@ -1,0 +1,22 @@
+{
+  "name": "se181-chess-web-app",
+  "version": "1.0.0",
+  "description": "Multiplayer Chess game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristianPedro/SE181-Chess-Web-App.git"
+  },
+  "author": "Christian Pedro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChristianPedro/SE181-Chess-Web-App/issues"
+  },
+  "homepage": "https://github.com/ChristianPedro/SE181-Chess-Web-App#readme",
+  "dependencies": {
+    "jshint": "^2.12.0"
+  }
+}
