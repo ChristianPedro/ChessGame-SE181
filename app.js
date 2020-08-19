@@ -1,23 +1,16 @@
-const http = require('http');
-const fs = require('fs');
+var express = require('express');
+var path = require('path');
 
-const hostname = '127.0.0.1';
-const port = 8080
+//init express
+var app = express();
 
-fs.readFile('index.html', (err, html) => {
-	if(err){
-		throw err;
 
-	}
-	const server = http.createServer((req,res) => {
-		res.statusCode = 200
-		res.setHeader('Content-type', 'html');
-		res.write(html);
-		res.end();
-	})
+//Variables 
+var PORT = process.env.PORT || 5000;
 
-	server.listen(port, hostname, () => {
-		console.log('Server started on port '+port);
-})
-});
+//Create endpoint handlers
+app.use(express.static(path.join(__dirname, 'public')));
 
+//listen on port
+app.listen(PORT, function() {console.log('server started on ${PORT}');}
+);
