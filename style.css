@@ -1,0 +1,49 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+.nav-bar a {
+	text-decoration: none;
+	color: black;
+	font: sans-serif;
+	font-size: 25px;
+	margin: 15%;
+}
+
+.nav-bar {
+	background: #65686e;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	width: 200px;
+	height: 300px;
+	padding-top: 80px;
+	display: fixed;
+	position: fixed;
+
+}
+
+.join-room-box div{
+	width: 400px;
+	font-size: 30px;
+	text-align: center;
+	display: inline-block;
+
+	
+}
+
+.join-room-box {
+	border-color: black;
+	border-radius: 15px 15px;
+	background: blue;
+	width: 800px;
+	height: 300px;
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	padding-top: 15%;
+	background-image: url('/images/ChessBoard.jpg');
+}
