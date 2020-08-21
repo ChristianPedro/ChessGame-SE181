@@ -54,3 +54,43 @@ function getRoom(key){
 app.get('/room/:key', function(req, res){
     res.send(getRoom(req.params.key));
 });
+
+
+//Piece Class
+class Piece{
+    constructor(id,timesMoved,title,color){
+        this.pieceId = id;
+        this.timesMoved = timesMoved;
+        this.title = title;
+        this.color = color;
+    }
+    //Setter methods
+    setId(id) {
+        this.pieceId = id;
+    }
+
+    upTimesMoved(){
+        this.timesMoved++;
+    }
+    setTitle(title){
+        this.title = title;
+    }
+
+    //Getter Methods
+    getId(){
+        return this.pieceId;
+    }
+    getTimesMoved(){
+        return this.timesMoved;
+    }
+    getTitle(){
+        return this.title;
+    }
+    getColor(){
+        return this.color;
+    }
+}
+
+function Validate(PieceObject,desiredSpot) {
+    //to be implimented - still in the design process, working it out
+}
