@@ -93,7 +93,7 @@ socket.on('connection', socket => {
         });
     });
     socket.emit('update', {
-        board: board
+        board: board,
     });
 });
 
@@ -177,6 +177,71 @@ class Piece{
     }
 }
 
-function Validate(PieceObject,desiredSpot) {
-    //to be implimented - still in the design process, working it out
-}
+class game{
+    constructor(){
+    this.activeBoard={
+    'A':{1:'Empty',2:'Empty',3:'Empty',4:'Empty',5:'Empty',6:'Empty',7:'Empty',8:'Empty'},
+    'B':{1:'Empty',2:'Empty',3:'Empty',4:'Empty',5:'Empty',6:'Empty',7:'Empty',8:'Empty'},
+    'C':{1:'Empty',2:'Empty',3:'Empty',4:'Empty',5:'Empty',6:'Empty',7:'Empty',8:'Empty'},
+    'D':{1:'Empty',2:'Empty',3:'Empty',4:'Empty',5:'Empty',6:'Empty',7:'Empty',8:'Empty'},
+    'E':{1:'Empty',2:'Empty',3:'Empty',4:'Empty',5:'Empty',6:'Empty',7:'Empty',8:'Empty'},
+    'F':{1:'Empty',2:'Empty',3:'Empty',4:'Empty',5:'Empty',6:'Empty',7:'Empty',8:'Empty'},
+    'G':{1:'Empty',2:'Empty',3:'Empty',4:'Empty',5:'Empty',6:'Empty',7:'Empty',8:'Empty'},
+    'H':{1:'Empty',2:'Empty',3:'Empty',4:'Empty',5:'Empty',6:'Empty',7:'Empty',8:'Empty'}};
+    }
+
+    validate(start,finish,piece){
+        var startCol=start.slice(0,1).toUpperCase();
+        var startRow=start.slice(1,2);
+        var finishCol=finish.slice(0,1).toUpperCase();
+        var finishRow=finish.slice(1,2);
+        console.log(startCol,startRow);
+        console.log(finishCol, finishRow);
+        if(piece==b.pawn || piece==w.pawn){
+            if(startRow==2 || startRow==8){
+                if(finishCol==startCol && finishRow-startRow==2 || finishCol==startCol && finishRow-startRow==1){
+                    console.log('executing')
+                    console.log(this.activeBoard[startCol][startRow]);
+                    this.activeBoard[finishCol][finishRow]=piece;
+                    this.activeBoard[startCol][startRow]='Empty';
+                    console.log(this.activeBoard[startCol][startRow]);
+                    console.log(this.activeBoard[finishCol][finishRow]);
+                    return 'True';
+                }
+                else{
+                    return 'False';
+                }
+            }
+            else{
+                if(finishCol==startCol && finishRow-startRow==1){
+                    console.log('executing')
+                    console.log(this.activeBoard[startCol][startRow]);
+                    this.activeBoard[finishCol][finishRow]=piece;
+                    this.activeBoard[startCol][startRow]='Empty';
+                    console.log(this.activeBoard[startCol][startRow]);
+                    console.log(this.activeBoard[finishCol][finishRow]);
+                    return 'True';
+                }
+                else{
+                    return 'False';
+            }
+        }
+        //if pawn can move down one or two spaces through dict ------------Done
+        //if rook can move through dict or accross dict x
+        //if king move one in any direction x
+        //if knight + or - 2 in ascii plus or minus 1 for second Dict
+        //if bishop + 1 -1 or +1, -1 -1 or +1, ect
+        //if queen combine rook and bishop
+    }
+
+}}
+
+g=new game();
+//console.log(g.activeBoard.B[8]);
+console.log(g.validate('a2','a4',b.pawn));
+console.log("-----------------");
+console.log(g.validate('b2','b4',b.pawn));
+console.log("-----------------");
+console.log(g.validate('c2','c3',w.pawn));
+console.log("-----------------");
+console.log(g.validate('c2','d4',w.pawn));
