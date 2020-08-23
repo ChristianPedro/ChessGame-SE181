@@ -181,8 +181,10 @@
         var target = e.target || e.srcElement, text = target.textContent || target.innerText;
         if (target.id){
           if(start){
-            let points = [start, target.id];
-            if(points.every(p => Object.values(PIECES.white).includes(p))){
+            let white = Object.values(PIECES.white).map(p => String.fromCharCode(parseInt(`0${p.substring(2, p.length - 1)}`)));
+            let s = document.getElementById(start).innerHTML;
+            let t = document.getElementById(target.id).innerHTML;
+            if (t && white.includes(s) === white.includes(t)) {
               return;
             }
             socket.emit('move-piece', {
