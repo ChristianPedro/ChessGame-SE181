@@ -153,6 +153,26 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script>
+
+      const PIECES = {
+    black: {
+        "king": "&#x265A;",
+        "queen": "&#x265B;",
+        "rook": "&#x265C;",
+        "bishop": "&#x265D;",
+        "knight": "&#x265E;",
+        "pawn": "&#x265F;"
+    },
+    white: {
+        "king": "&#x2654;",
+        "queen": "&#x2655;",
+        "rook": "&#x2656;",
+        "bishop": "&#x2657;",
+        "knight": "&#x2658;",
+        "pawn": "&#x2659;"
+    }
+}
+
 		    var socket = io();
     let start = undefined;
     for (let row of document.getElementsByClassName("row")) {
@@ -160,7 +180,11 @@
         e = e || window.event;
         var target = e.target || e.srcElement, text = target.textContent || target.innerText;
         if (target.id){
-          if(start && !text){
+          if(start){
+            let points = [start, target.id];
+            if(points.every(p => Object.values(PIECES.white).includes(p))){
+              return;
+            }
             socket.emit('move-piece', {
               start: start,
               end: target.id
