@@ -19,9 +19,13 @@
   "homepage": "https://github.com/ChristianPedro/SE181-Chess-Web-App#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "jshint": "^2.12.0"
+    "jshint": "^2.12.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
+    "@types/socket.io": "^2.1.11",
+    "@types/socket.io-client": "^1.4.33",
     "nodemon": "^2.0.4"
   }
 }
