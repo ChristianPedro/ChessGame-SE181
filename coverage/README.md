@@ -50,3 +50,23 @@ npm install --save-dev jest
  
 # Bug Tracking (TrackJS)
 This project was built using TrackJS features to fix bugs. 
+
+TrackJS doesn't have an dependencies. 
+TrackJS is expected to get installed along with other dependencies, however if it doesn't get installed:
+1. run the command:
+```
+npm install trackjs --save
+```
+2. add the following lines to app.js for its installation
+
+```
+// ES6 Modular JavaScript.
+// npm install trackjs --save
+
+import { TrackJS } from "trackjs";
+TrackJS.install({
+  token: "YOUR_TOKEN"
+});
+TrackJS.track('Error')
+```
+A complete report of the bugs appear on the dashboard on your TrackJS account.
