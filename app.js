@@ -1,16 +1,16 @@
-var express = require('express');
-var path = require('path');
-const { request } = require('http');
+//          var express = require('express');
+//          var path = require('path');
+//          const { request } = require('http');
 
 //init express
-var app = express();
+//          var app = express();
 
 const http = require('http').Server(app);
 
 const socket = require('socket.io')(http);
 
 //Variables 
-var PORT = process.env.PORT || 5000;
+//          var PORT = process.env.PORT || 5000;
 
 //Create endpoint handlers
 //app.use(express.static(path.join(__dirname, 'public')));
@@ -19,7 +19,48 @@ var PORT = process.env.PORT || 5000;
 //app.listen(PORT, function() {console.log(`server started on ${PORT}`);}
 //);
 
+//app.get('/', (req, res) => res.sendFile(__dirname+'/index.html'));
+
+var express = require('express');
+var path = require('path');
+
+//init express
+var app = express();
+const server = require('http').createServer(app);
+
+var io = require('socket.io').listen(server);
+
 app.get('/', (req, res) => res.sendFile(__dirname+'/index.html'));
+
+
+//Variables 
+var PORT = process.env.PORT || 5000;
+server.listen(PORT);
+
+io.on('connect', socket => {
+    console.log('connect');
+    socket.on('joinroom', (roomcode) => {
+      socket.join(roomcode, () => {
+        io.to(roomcode).emit('new user');
+      });
+      console.log(`joining room ${roomcode}`)
+    });
+  
+  });
+
+
+
+app.get('/room', (req, res) => res.sendFile(__dirname+'/chessIndex.html'));
+  
+
+
+
+
+
+
+//Create endpoint handlers
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 const PIECES = {
     black: {
@@ -97,9 +138,9 @@ socket.on('connection', socket => {
     });
 });
 
-http.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`)
-});
+// http.listen(PORT, () => {
+//     console.log(`listening on port ${PORT}`)
+// });
 
 class ChessGame{
     constructor(){
