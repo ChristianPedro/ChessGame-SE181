@@ -48,4 +48,5 @@ npm install --save-dev jest
  
  All required functions have been tested and the test cases can be found in their respective file
  
-
+# Bug Tracking (TrackJS)
+This project was built using TrackJS features to fix bugs. 
