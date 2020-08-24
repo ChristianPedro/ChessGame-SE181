@@ -65,7 +65,7 @@ to get everything to play nice.
 
 
 # Candidate Release log
-______________________________________________________________________________________________________________________________________________________
+
 # Version 1.1.0 
 Create a new UI for joining a game
 Resolve same pleyer multi turn issue
