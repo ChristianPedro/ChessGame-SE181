@@ -1,7 +1,6 @@
 # ChessGame-SE181
 This is a collaborative project with the intent of building a chess web app that allows two clients to interact with a server.
 
-
 Release Notes:
 
 # Version 1.0: Connection
@@ -63,3 +62,14 @@ This version is our final big update to the web app. This version performs our f
 to get everything to play nice. 
 
 -Merging of files to fix issues with movements
+
+
+Candidate Release log
+# Version 1.1.0 
+Create a new UI for joining a game
+Resolve same pleyer multi turn issue
+Enter coordinates to move location
+
+# Version 1.1.1
+Move pieces on drag and drop
+Specify game version in about page
