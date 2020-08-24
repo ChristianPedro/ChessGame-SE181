@@ -153,6 +153,26 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script>
+
+      const PIECES = {
+    black: {
+        "king": "&#x265A;",
+        "queen": "&#x265B;",
+        "rook": "&#x265C;",
+        "bishop": "&#x265D;",
+        "knight": "&#x265E;",
+        "pawn": "&#x265F;"
+    },
+    white: {
+        "king": "&#x2654;",
+        "queen": "&#x2655;",
+        "rook": "&#x2656;",
+        "bishop": "&#x2657;",
+        "knight": "&#x2658;",
+        "pawn": "&#x2659;"
+    }
+}
+
 		    var socket = io();
     let start = undefined;
     for (let row of document.getElementsByClassName("row")) {
@@ -160,14 +180,19 @@
         e = e || window.event;
         var target = e.target || e.srcElement, text = target.textContent || target.innerText;
         if (target.id){
-          if(start && !text){
+          if(start){
+            let white = Object.values(PIECES.white).map(p => String.fromCharCode(parseInt(`0${p.substring(2, p.length - 1)}`)));
+            let s = document.getElementById(start).innerHTML;
+            let t = document.getElementById(target.id).innerHTML;
+            if (t && white.includes(s) === white.includes(t)) {
+              return;
+            }
             socket.emit('move-piece', {
               start: start,
               end: target.id
             });
             //console.log(`sent packet: ${start} to ${target.id}`,)
             start = undefined;
-            location.reload();
           }
           else if(text){
             start = target.id;
