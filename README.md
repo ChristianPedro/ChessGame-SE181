@@ -1,7 +1,7 @@
 # ChessGame-SE181
 This is a collaborative project with the intent of building a chess web app that allows two clients to interact with a server.
 
-Release Notes:
+# Release Notes:
 
 # Version 1.0: Connection
 This is version is the basis for our webapp. This version hosts our first iteration of our node server and html pages to to serve the room assignment page.
@@ -64,7 +64,8 @@ to get everything to play nice.
 -Merging of files to fix issues with movements
 
 
-Candidate Release log
+# Candidate Release log
+______________________________________________________________________________________________________________________________________________________
 # Version 1.1.0 
 Create a new UI for joining a game
 Resolve same pleyer multi turn issue
