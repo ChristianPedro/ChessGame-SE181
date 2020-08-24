@@ -52,6 +52,7 @@ io.on('connect', socket => {
 
 
 app.get('/room', (req, res) => res.sendFile(__dirname+'/chessIndex.html'));
+app.get('/about', (req, res) => res.sendFile(__dirname+'/about.html'));
   
 
 
