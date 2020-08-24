@@ -42,7 +42,8 @@ npm install --save-dev jest
 }
  ```
  
- The test files are in the main directory and are named as follows
+ The test files are in the main directory and are named as 
+ 
  'nameOfFunctionToTest'.test.js
  
  All required functions have been tested and the test cases can be found in their respective file
