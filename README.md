@@ -1,7 +1,18 @@
 # ChessGame-SE181
 This is a collaborative project with the intent of building a chess web app that allows two clients to interact with a server.
 
-# Documentation
+# Starting the project
+```
+# Go inside the directory
+cd ChessGame-SE181
+
+# Install dependencies
+npm install
+
+# run the project
+# make sure to run only when app.js is in the same level directory as the user
+node app.js
+```
 
 
 # Release Notes:
