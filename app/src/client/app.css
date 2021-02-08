@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
+
+p {
+  text-align: left;
+  margin-left: -20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  text-align: center;
+  margin: auto;
+  height: 100vh;
+  background-color:	#eeeed2;
+}
+
+.central{
+  margin-top: 4%;
+  margin-left: 13%;
+  position: absolute;
+}
